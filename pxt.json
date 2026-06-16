@@ -11,6 +11,8 @@
     },
     "files": [
         "main.ts",
+        "block/M_other.ts",
+        "block/M_motor.ts",
         "block/Av_LED.ts",
         "block/Av_RGBLED.ts",
         "block/Av_OLED.ts",
