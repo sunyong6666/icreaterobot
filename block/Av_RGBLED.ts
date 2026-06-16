@@ -68,7 +68,7 @@ namespace Microbit {
         //% strip.defl=strip
         //% weight=12
         //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
-        //% color=#2699BF blockGap=10
+        //% blockGap=10
         showColor(rgb: number) {
             rgb = rgb >> 0;
             this.lastrgb = rgb;
@@ -87,7 +87,7 @@ namespace Microbit {
         //% strip.defl=strip
         //% weight=13
         //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
-        //% color=#2699BF blockGap=10
+        //% blockGap=10
         showRainbow(startHue: number = 1, endHue: number = 360) {
             if (this._length <= 0) return;
             startHue = startHue >> 0;
@@ -158,7 +158,7 @@ namespace Microbit {
         //% strip.defl=strip
         //% weight=17
         //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
-        //% color=#2699BF blockGap=10
+        //% blockGap=10
         setBrightness(brightness: number): void {
             this.brightness = brightness & 0xff;
             this.setAllRGB(this.lastrgb);
@@ -176,7 +176,7 @@ namespace Microbit {
          * Set the pin where the neopixel is connected, defaults to P0.
          */
         //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
-        //% color=#2699BF blockGap=10
+        //% blockGap=10
         setPin(pin: DigitalPin): void {
             this.pin = pin;
             pins.digitalWritePin(this.pin, 0);
@@ -278,7 +278,7 @@ namespace Microbit {
     //% weight=18
     //% trackArgs=0,2
     //% blockSetVariable=strip
-    //% color=#2699BF blockGap=10
+    //% blockGap=10
     //% weight=51
     export function create(neopixelpin: Write_pin): Strip {
         let strip2 = new Strip();
@@ -328,7 +328,7 @@ namespace Microbit {
     //% blockId="neopixel_rgb" block="red %red|green %green|blue %blue"
     //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
     //% weight=12
-    //% color=#2699BF blockGap=10
+    //% blockGap=10
     export function rgb(red: number, green: number, blue: number): number {
         return packRGB(red, green, blue);
     }
@@ -339,7 +339,7 @@ namespace Microbit {
     //% blockId="neopixel_colors" block="%color"
     //% parts="neopixel" subcategory="Audio-visual" group="RGB LED Module"
     //% weight=13
-    //% color=#2699BF blockGap=10
+    //% blockGap=10
     export function colors(color: NeoPixelColors): number {
         return color;
     }

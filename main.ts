@@ -79,6 +79,8 @@ enum rock {
     orient4 = 3
 }
 
+//% color="#272bcf"
+//% icon="\uf2db"
 namespace Microbit {
 
     //% blockId=buttonState
@@ -87,7 +89,7 @@ namespace Microbit {
     //% buttonpin.fieldOptions.width=220
     //% buttonpin.fieldOptions.columns=2
     //% block="Button Sensor %buttonpin"
-    //% subcategory=Sensor
+    //% subcategory=Sensor 
     export function buttonState(buttonpin: Write_pin): number {
         let pin16
         if (buttonpin == 1) {

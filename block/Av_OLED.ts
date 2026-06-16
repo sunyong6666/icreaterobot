@@ -335,7 +335,7 @@ namespace Microbit {
     //% oled.fieldOptions.width=320
     //% oled.fieldOptions.columns=13
     //% group="OLED Module" subcategory="Audio-visual"
-    //% weight=10 blockGap=10 color=#0855AA
+    //% weight=10 blockGap=10 
     export function showString(oled: Oled, s: string, color: number = 1) {
         let oled_x = oled % 13;
         let oled_y = Math.floor(oled / 13);
@@ -386,7 +386,7 @@ namespace Microbit {
     //% olednum.fieldOptions.width=320
     //% olednum.fieldOptions.columns=13
     //% group="OLED Module" subcategory="Audio-visual"
-    //% weight=9 blockGap=10 color=#0855AA
+    //% weight=9 blockGap=10
     export function showNumber(olednum: Oled, num: number, color: number = 1) {
         let olednum_x = 0
         let olednum_y = 0
@@ -410,7 +410,7 @@ namespace Microbit {
     //% blockId="OLED12864_I2C_SHOWSTRINGxy" block="Display string at x %x|y %y|at %s|color %color"
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED Module" subcategory="Audio-visual"
-    //% weight=80 blockGap=10 color=#0855AA
+    //% weight=80 blockGap=10 
     export function showStringxy(x: number, y: number, s: string, color: number = 1) {
         let col = 0
         let e = 0
@@ -448,7 +448,7 @@ namespace Microbit {
     //% blockId="OLED12864_I2C_NUMBERxy" block="Display number at x %x|y %y|number %num|color %color"
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED Module" subcategory="Audio-visual"
-    //% weight=80 blockGap=10 color=#0855AA
+    //% weight=80 blockGap=10
     export function showNumberxy(x: number, y: number, num: number, color: number = 1) {
         showStringxy(x, y, num.toString(), color)
     }
@@ -460,7 +460,7 @@ namespace Microbit {
     //% blockId="OLED12864_I2C_CLEAR" block="clear"
     //% parts=OLED12864_I2C trackArgs=0
     //% group="OLED Module" subcategory="Audio-visual"
-    //% weight=8 blockGap=10 color=#0855AA
+    //% weight=8 blockGap=10
     export function clear() {
         _screen.fill(0)
         _screen[0] = 0x40
@@ -477,7 +477,7 @@ namespace Microbit {
     //% parts=OLED12864_I2C trackArgs=0
     //% weight=11 blockGap=10
     //% group="OLED Module" subcategory="Audio-visual"
-    //% blockGap=10  color=#0855AA
+    //% blockGap=10  
     export function init() {
         _I2CAddr = 60;
         cmd1(0xAE)       // SSD1306_DISPLAYOFF
