@@ -1,0 +1,45 @@
+{
+    "name": "icreaterobot",
+    "version": "1.1.6",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.ts",
+        "block/Av_LED.ts",
+        "block/Av_RGBLED.ts",
+        "block/Av_OLED.ts",
+        "block/Av_other.ts",
+        "README.md",
+        "_locales/zh/icreaterobot-strings.json",
+        "_locales/ru/icreaterobot-strings.json",
+        "_locales/ja/icreaterobot-strings.json",
+        "_locales/ko/icreaterobot-strings.json",
+        "_locales/fr/icreaterobot-strings.json",
+        "_locales/ar/icreaterobot-strings.json",
+        "_locales/de/icreaterobot-strings.json",
+        "_locales/el/icreaterobot-strings.json",
+        "_locales/zh-TW/icreaterobot-strings.json",
+        "heart.cpp",
+        "MAX30105.cpp",
+        "MAX30105.h",
+        "shims.d.ts",
+        "enums.d.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "8.0.22",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
