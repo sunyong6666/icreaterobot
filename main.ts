@@ -420,7 +420,7 @@ namespace Microbit {
     }
 
 
-
+    /////////////气体////////////////
     //% blockId="ReadGasConcentration" block="MQ-2 Gas Sensor %gasconcentrationpin"
     //% weight=32
     //% gasconcentrationpin.fieldEditor="gridpicker"
@@ -455,6 +455,7 @@ namespace Microbit {
     }
 
 
+    /////////土壤湿度////////////////////
     //% blockId="readsoilmoisture" block="Soil moisture Sensor %soilhumiditypin"
     //% weight=31
     //% soilmoisturepin.fieldEditor="gridpicker"
@@ -489,7 +490,7 @@ namespace Microbit {
     }
 
 
-
+    /////////温度传感器////////////////////
     //% blockId="readWaterTemp" block="Temperature Sensor %waterproofpin"
     //% weight=30
     //% waterproofpin.fieldEditor="gridpicker"
