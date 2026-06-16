@@ -1156,265 +1156,39 @@ namespace Microbit {
     }
 
 
-    const PCA9685_ADD = 0x40
-
-    const MODE1 = 0x00
-
-    const SUBADR1 = 0x02
-
-    const SUBADR2 = 0x03
-
-    const SUBADR3 = 0x04
-
-    const PRESCALE = 0xFE
-
-    const LED0_ON_L = 0x06
-
-    const LED0_ON_H = 0x07
-
-    const LED0_OFF_L = 0x08
-
-    const LED0_OFF_H = 0x09
-
-    const ALL_LED_ON_L = 0xFA
-
-    const ALL_LED_ON_H = 0xFB
-
-    const ALL_LED_OFF_L = 0xFC
-
-    const ALL_LED_OFF_H = 0xFD
 
 
-
-    const STP_CHA_L = 2047
-
-    const STP_CHA_H = 4095
-
-
-
-    const STP_CHB_L = 1
-
-    const STP_CHB_H = 2047
-
-
-
-    const STP_CHC_L = 1023
-
-    const STP_CHC_H = 3071
-
-
-    const STP_CHD_L = 3071
-
-    const STP_CHD_H = 1023
-
-
-
-    let initialized = false
 
     let caraddress1 = 81
     let caraddress2 = 82
 
-
-
-    function i2cwrite(addr: number, reg: number, value: number) {
-
-        let buf6 = pins.createBuffer(2)
-
-        buf6[0] = reg
-
-        buf6[1] = value
-
-        pins.i2cWriteBuffer(addr, buf6)
-
-    }
-
-
-
-    function i2cread(addr: number, reg: number) {
-
-        pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE);
-
-        let val = pins.i2cReadNumber(addr, NumberFormat.UInt8BE);
-
-        return val;
-
-    }
-
-
-
-    function initPCA9685(): void {
-        i2cwrite(PCA9685_ADD, MODE1, 0x00)
-        setFreq(50);
-        initialized = true
-    }
-
-    function setFreq(freq: number): void {
-        // Constrain the frequency
-        let prescaleval = 25000000;
-        prescaleval /= 4096;
-        prescaleval /= freq;
-        prescaleval -= 1;
-        let prescale = prescaleval; //Math.Floor(prescaleval + 0.5);
-        let oldmode = i2cread(PCA9685_ADD, MODE1);
-        let newmode = (oldmode & 0x7F) | 0x10; // sleep
-        i2cwrite(PCA9685_ADD, MODE1, newmode); // go to sleep
-        i2cwrite(PCA9685_ADD, PRESCALE, prescale); // set the prescaler
-        i2cwrite(PCA9685_ADD, MODE1, oldmode);
-        control.waitMicros(5000);
-        i2cwrite(PCA9685_ADD, MODE1, oldmode | 0xa1);
-    }
-
-
-    function setPwm(channel: number, on: number, off: number): void {
-        if (channel < 0 || channel > 15)
-            return;
-        if (!initialized) {
-            initPCA9685();
-        }
-        let buf22 = pins.createBuffer(5);
-        buf22[0] = LED0_ON_L + 4 * channel;
-        buf22[1] = on & 0xff;
-        buf22[2] = (on >> 8) & 0xff;
-        buf22[3] = off & 0xff;
-        buf22[4] = (off >> 8) & 0xff;
-        pins.i2cWriteBuffer(PCA9685_ADD, buf22);
-    }
-
-
-
-
-    //% blockId=SuperBit_MotorRun 
-
-    //% weight=27
-
-    //% index.fieldEditor="gridpicker"
-
-    //% index.fieldOptions.width=220
-
-    //% index.fieldOptions.columns=2
-
-    //% block="DC Motor|%index|speed(-255~255) %speed"
-
-    //% speed.min=-255 speed.max=255
-
-    //% subcategory=Movement
-
-    export function MotorRun(index: enMotors, speed: number): void {
-
-        if (!initialized) {
-
-            initPCA9685()
-
-        }
-
-        speed = speed * 16; // map 255 to 4096
-
-        if (speed >= 4096) {
-
-            speed = 4095
-
-        }
-
-        if (speed <= -4096) {
-
-            speed = -4095
-
-        }
-
-
-
-        let a = index
-
-        let b = index + 1
-
-
-
-        if (a > 10) {
-
-            if (speed >= 0) {
-
-                setPwm(a, 0, speed)
-
-                setPwm(b, 0, 0)
-
-            } else {
-
-                setPwm(a, 0, 0)
-
-                setPwm(b, 0, -speed)
-
-            }
-
-        }
-
-        else {
-
-            if (speed >= 0) {
-
-                setPwm(b, 0, speed)
-
-                setPwm(a, 0, 0)
-
-            } else {
-
-                setPwm(b, 0, 0)
-
-                setPwm(a, 0, -speed)
-
-            }
-
-        }
-
-    }
+   
     //% blockId=SuperBit_runMotor block="|%motoraddress|Motor rotate at|%speed|"
-
     //% speed.min=-100 speed.max=100
-
     //% parts="SuperBit_runMotor" subcategory=Movement group="Servo Motor"
-
     export function runMotor(motoraddress: enMotorcolor, speed: number): void {
         speed = speed / 2
-
         let speed_Buff
-
         if (speed < 0) {
-
             speed = -speed
-
             speed_Buff = (~speed) + 1
-
             speed_Buff = speed_Buff | 0x80
-
-        }
-
-        else {
-
+        }else {
             speed_Buff = speed
-
         }
 
         let SetBuff = pins.createBuffer(4)
-
         SetBuff.setNumber(NumberFormat.UInt8BE, 0, 0x11)
-
         SetBuff.setNumber(NumberFormat.UInt8BE, 1, speed_Buff)
-
         SetBuff.setNumber(NumberFormat.UInt8BE, 2, 0)
-
         SetBuff.setNumber(NumberFormat.UInt8BE, 3, 0)
-
         pins.i2cWriteBuffer(motoraddress, SetBuff)
-
-
     }
+
     //% blockId="writemotorlocation" block="|%motoraddress|Motor is turned at|%speed|to|%location|degrees"
-
     //% speed.min=0 speed.max=100
-
     //% location.min=-360 location.max=360
-
     //% parts="writemotorlocation" subcategory=Movement group="Servo Motor"
-
     export function Writemotorlocation(motoraddress: enMotorcolor, speed: number, location: number): void {
         if (speed == 0) {
             return
@@ -1427,8 +1201,7 @@ namespace Microbit {
             speed = -speed
             speed_Buff2 = (~speed) + 1
             speed_Buff2 = speed_Buff2 | 0x80
-        }
-        else {
+        }else {
             speed_Buff2 = speed
         }
 
@@ -1438,8 +1211,7 @@ namespace Microbit {
             location = -location
             location_Buff2 = (~location) + 1
             location_Buff2 = location_Buff2 | 0x8000
-        }
-        else {
+        }else {
             location_Buff2 = location
         }
 
@@ -1455,7 +1227,6 @@ namespace Microbit {
         SetBuff2.setNumber(NumberFormat.UInt8BE, 1, speed_Buff2)
         SetBuff2.setNumber(NumberFormat.UInt8BE, 2, location_Buff2 >> 8)
         SetBuff2.setNumber(NumberFormat.UInt8BE, 3, location_Buff2)
-
 
         pins.i2cWriteBuffer(motoraddress, SetBuff2)
 
@@ -1488,8 +1259,7 @@ namespace Microbit {
             speed = -speed
             location_Buff22 = (~location) + 1
             location_Buff22 = location_Buff22 | 0x8000
-        }
-        else {
+        }else {
             speed = speed
             location_Buff22 = location
         }
@@ -1832,30 +1602,16 @@ namespace Microbit {
 
     }
 
-    //% blockId=SuperBit_DMotor block="Set left motor to|%motoraddress1|and right motor to|%motoraddress2|"
-
+    //% blockId=SuperBit_DMotor 
+    //% block="Set left motor to|%motoraddress1|and right motor to|%motoraddress2|"
     //% parts="SuperBit_DMotor" subcategory=Movement group="Servo Motor"
-
     export function DMotor(motoraddress1: enMotorcolor, motoraddress2: enMotorcolor): void {
         caraddress1 = motoraddress1
-
         caraddress2 = motoraddress2
-
     }
 
 
-    //% blockId=SuperBit_Servo4 block="Servo| %num|angle %value"
-    //% num.min=1 num.max=4 value.min=0 value.max=300
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=20
-    //%  subcategory=Movement
-    export function Servo4(num: enServo, value: number): void {
-
-        // 50hz: 20,000 us
-        let us = (value * 1800 * 0.6 / 180 + 600); // 0.6 ~ 2.4
-        let pwm = us * 4096 / 20000;
-        setPwm(num, 0, pwm);
-
-    }
+    
 
     //% blockId="readmotorspeed" block="Read speed of the |%motoraddress|motor"
 
@@ -1899,170 +1655,13 @@ namespace Microbit {
     //% parts="readmotorlocation" subcategory=Movement group="Servo Motor"
 
     export function Readmotorlocation(motoraddress: enMotorcolor): number {
-
         let GetBuff22 = pins.createBuffer(6)
-
         GetBuff22 = pins.i2cReadBuffer(motoraddress, 6)
         let This_location2 = getMotorLocation(GetBuff22);
         return This_location2;
-
     }
     
 
-
-
-
-    //% blockId=fans block="Fan %fanpin switch $fanstate || speed %speed"
-
-    //% fanstate.shadow="toggleOnOff"
-
-    //% weight=24
-
-    //% fanpin.fieldEditor="gridpicker"
-
-    //% fanpin.fieldOptions.width=220
-
-    //% fanpin.fieldOptions.columns=1
-
-    //% speed.min=0 speed.max=1023
-
-    //% expandableArgumentMode="toggle"
-
-    //% subcategory=Movement
-
-    export function motorFan(fanpin: Read_pin, fanstate: boolean, speed: number = 1023): void {
-
-        let pin3
-
-
-
-
-
-        if (fanpin == 1) {
-
-
-
-            pin3 = AnalogPin.P0;
-
-        }
-
-        if (fanpin == 2) {
-
-            pin3 = AnalogPin.P1;
-
-        }
-
-        if (fanpin == 3) {
-
-            pin3 = AnalogPin.P2;
-
-        }
-
-
-
-        if (fanstate) {
-
-            pins.analogSetPeriod(pin3, 1023);
-
-            pins.analogWritePin(pin3, Math.map(speed, 0, 1023, 0, 1023));
-
-        }
-
-        else {
-
-            pins.analogWritePin(pin3, 0);
-
-            speed = 0;
-
-        }
-
-
-
-    }
-
-
-
-    //% blockId="elecmagnet" block="Electromagnet %elecpin switch %magState || electromagnet %force"
-
-    //% magState.shadow="toggleOnOff"
-
-    //% weight=23
-
-    //% elecpin.fieldEditor="gridpicker"
-
-    //% elecpin.fieldOptions.width=220
-
-    //% elecpin.fieldOptions.columns=2
-
-    //% force.min=0 force.max=1023
-
-    //% expandableArgumentMode="toggle"
-
-    //% subcategory=Movement
-
-    export function elecmagnet(elecpin: Write_pin, magState: boolean, force: number = 1023): void {
-
-        let pin8
-
-        if (elecpin == 1) {
-
-
-
-            pin8 = AnalogPin.P0;
-
-        }
-
-        if (elecpin == 2) {
-
-            pin8 = AnalogPin.P16;
-
-        }
-
-        if (elecpin == 3) {
-
-            pin8 = AnalogPin.P1;
-
-        }
-
-        if (elecpin == 4) {
-
-
-
-            pin8 = AnalogPin.P12;
-
-        }
-
-        if (elecpin == 5) {
-
-            pin8 = AnalogPin.P2;
-
-        }
-
-        if (elecpin == 6) {
-
-            pin8 = AnalogPin.P8;
-
-        }
-
-
-
-        if (magState == true) {
-
-            pins.analogSetPeriod(pin8, 1023)
-
-            pins.analogWritePin(pin8, Math.map(force, 0, 1023, 0, 1023))
-
-        }
-
-        else {
-
-            pins.analogWritePin(pin8, 0)
-
-            force = 0
-
-        }
-
-    }
-
+    
 
 }
