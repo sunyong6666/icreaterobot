@@ -1,5 +1,19 @@
 // 运动其他模块
 
+enum enServo {
+    S1 = 0,
+    S2,
+    S3,
+    S4
+}
+
+enum enMotors {
+    M2 = 10,
+    M3 = 12,
+    M1 = 8,
+    M4 = 14
+}
+
 namespace Microbit {
 
     const PCA9685_ADD = 0x40

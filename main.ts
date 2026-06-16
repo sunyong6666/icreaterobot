@@ -44,17 +44,6 @@ enum Ultrasonic_pin {
     u5 = 215
 }
 
-enum Recodpin {
-    //% block="(P0,P13)"
-    rc1 = 13,
-
-    //% block="(P1,P14)"
-    rc2 = 114,
-
-    //% block="(P2,P15)"
-    rc3 = 215
-}
-
 
 enum PingUnit {
     //% block="centimeters"
@@ -67,88 +56,28 @@ enum PingUnit {
     Inches
 }
 
-enum Grayscale_pin {
-    //% block="P13"
-    g0 = 1,
 
-    //% block="P16"
-    g1 = 2,
+enum rocket {
+    //% block="X"
+    x = 1,
 
-    //% block="P0"
-    g2 = 3,
-
-    //% block="P10"
-    g3 = 4,
-
-    //% block="P14"
-    g4 = 5,
-
-    //% block="P12"
-    g5 = 6,
-
-    //% block="P1"
-    g6 = 7,
-
-    //% block="P9"
-    g7 = 8,
-
-    //% block="P15"
-    g8 = 9,
-
-    //% block="P8"
-    g9 = 10,
-
-    //% block="P2"
-    g10 = 11,
-
-    //% block="P7"
-    g11 = 12
+    //% block="Y"
+    y = 2
 }
 
-enum gs {
+enum rock {
     //% block="up"
-    g0 = 1,
+    orient1 = 2,
 
     //% block="down"
-    g1 = 2,
+    orient2 = 1,
 
     //% block="left"
-    g2 = 3,
+    orient3 = 4,
 
     //% block="right"
-    g3 = 4
+    orient4 = 3
 }
-
-enum PINs {
-    P0,
-    P1,
-    P2,
-    P3,
-    P4,
-    P5,
-    P6,
-    P7,
-    P8,
-    P9,
-    P10,
-    P11,
-    P12,
-    P13,
-    P14,
-    P15,
-    P16,
-    P19,
-    P20
-}
-
-enum TMP36Type {
-    //% block="(℃)" enumval=0
-    TMP36_temperature_C,
-
-    //% block="(℉)" enumval=1
-    TMP36_temperature_F,
-}
-
 
 namespace Microbit {
 
@@ -346,7 +275,6 @@ namespace Microbit {
         lightintensity = voltage2;
         return Math.round(1023 - lightintensity);
     }
-
 
 
     //% blockId="Readflame" block="Flame Sensor %flamepin"
@@ -561,482 +489,246 @@ namespace Microbit {
 
 
     //% blockId="readWaterTemp" block="Temperature Sensor %waterproofpin"
-
     //% weight=30
-
     //% waterproofpin.fieldEditor="gridpicker"
-
     //% waterproofpin.fieldOptions.width=220
-
     //% waterproofpin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function readWaterTemp(waterproofpin: Read_pin): number {
-
         let voltage22 = 0;
-
         let waterProofTemp = 0;
-
         let pin14
 
         if (waterproofpin == 1) {
-
-
-
             pin14 = AnalogPin.P0;
-
         }
 
         if (waterproofpin == 2) {
-
             pin14 = AnalogPin.P1;
-
         }
 
         if (waterproofpin == 3) {
-
             pin14 = AnalogPin.P2;
-
         }
 
         voltage22 = pins.analogReadPin(pin14);//%获得原始值
-
         if (voltage22 > 1001) { waterProofTemp = 100; }
-
         else if (voltage22 > 1000) { waterProofTemp = 98; }
-
         else if (voltage22 > 999) { waterProofTemp = 97; }
-
         else if (voltage22 > 998) { waterProofTemp = 96; }
-
         else if (voltage22 > 997) { waterProofTemp = 95; }
-
         else if (voltage22 > 996) { waterProofTemp = 93; }
-
         else if (voltage22 > 995) { waterProofTemp = 92; }
-
         else if (voltage22 > 994) { waterProofTemp = 91; }
-
         else if (voltage22 > 993) { waterProofTemp = 90; }
-
         else if (voltage22 > 992) { waterProofTemp = 89; }
-
         else if (voltage22 > 991) { waterProofTemp = 88; }
-
         else if (voltage22 > 990) { waterProofTemp = 87; }
-
         else if (voltage22 > 989) { waterProofTemp = 86; }
-
         else if (voltage22 > 988) { waterProofTemp = 85; }
-
         else if (voltage22 > 987) { waterProofTemp = 84; }
-
         else if (voltage22 > 986) { waterProofTemp = 83; }
-
         else if (voltage22 > 985) { waterProofTemp = 82; }
-
         else if (voltage22 > 984) { waterProofTemp = 81; }
-
         else if (voltage22 > 982) { waterProofTemp = 80; }
-
         else if (voltage22 > 981) { waterProofTemp = 79; }
-
         else if (voltage22 > 980) { waterProofTemp = 78; }
-
         else if (voltage22 > 978) { waterProofTemp = 77; }
-
         else if (voltage22 > 977) { waterProofTemp = 76; }
-
         else if (voltage22 > 975) { waterProofTemp = 75; }
-
         else if (voltage22 > 974) { waterProofTemp = 74; }
-
         else if (voltage22 > 972) { waterProofTemp = 73; }
-
         else if (voltage22 > 971) { waterProofTemp = 72; }
-
         else if (voltage22 > 969) { waterProofTemp = 71; }
-
         else if (voltage22 > 967) { waterProofTemp = 70; }
-
         else if (voltage22 > 965) { waterProofTemp = 69; }
-
         else if (voltage22 > 963) { waterProofTemp = 68; }
-
         else if (voltage22 > 961) { waterProofTemp = 67; }
-
         else if (voltage22 > 959) { waterProofTemp = 66; }
-
         else if (voltage22 > 957) { waterProofTemp = 65; }
-
         else if (voltage22 > 955) { waterProofTemp = 64; }
-
         else if (voltage22 > 953) { waterProofTemp = 63; }
-
         else if (voltage22 > 950) { waterProofTemp = 62; }
-
         else if (voltage22 > 948) { waterProofTemp = 61; }
-
         else if (voltage22 > 943) { waterProofTemp = 59; }
-
         else if (voltage22 > 940) { waterProofTemp = 58; }
-
         else if (voltage22 > 937) { waterProofTemp = 57; }
-
         else if (voltage22 > 934) { waterProofTemp = 56; }
-
         else if (voltage22 > 931) { waterProofTemp = 55; }
-
         else if (voltage22 > 928) { waterProofTemp = 54; }
-
         else if (voltage22 > 924) { waterProofTemp = 53; }
-
         else if (voltage22 > 921) { waterProofTemp = 52; }
-
         else if (voltage22 > 917) { waterProofTemp = 51; }
-
         else if (voltage22 > 914) { waterProofTemp = 51; }
-
         else if (voltage22 > 910) { waterProofTemp = 49; }
-
         else if (voltage22 > 906) { waterProofTemp = 48; }
-
         else if (voltage22 > 902) { waterProofTemp = 47; }
-
         else if (voltage22 > 898) { waterProofTemp = 46; }
-
         else if (voltage22 > 893) { waterProofTemp = 45; }
-
         else if (voltage22 > 889) { waterProofTemp = 44; }
-
         else if (voltage22 > 884) { waterProofTemp = 43; }
-
         else if (voltage22 > 879) { waterProofTemp = 42; }
-
         else if (voltage22 > 874) { waterProofTemp = 41; }
-
         else if (voltage22 > 869) { waterProofTemp = 40; }
-
         else if (voltage22 > 864) { waterProofTemp = 39; }
-
         else if (voltage22 > 858) { waterProofTemp = 38; }
-
         else if (voltage22 > 852) { waterProofTemp = 37; }
-
         else if (voltage22 > 846) { waterProofTemp = 36; }
-
         else if (voltage22 > 840) { waterProofTemp = 35; }
-
         else if (voltage22 > 834) { waterProofTemp = 34; }
-
         else if (voltage22 > 827) { waterProofTemp = 33; }
-
         else if (voltage22 > 821) { waterProofTemp = 32; }
-
         else if (voltage22 > 814) { waterProofTemp = 31; }
-
         else if (voltage22 > 806) { waterProofTemp = 30; }
-
         else if (voltage22 > 799) { waterProofTemp = 29; }
-
         else if (voltage22 > 791) { waterProofTemp = 28; }
-
         else if (voltage22 > 784) { waterProofTemp = 27; }
-
         else if (voltage22 > 776) { waterProofTemp = 26; }
-
         else if (voltage22 > 767) { waterProofTemp = 25; }
-
         else if (voltage22 > 759) { waterProofTemp = 24; }
-
         else if (voltage22 > 750) { waterProofTemp = 23; }
-
         else if (voltage22 > 741) { waterProofTemp = 22; }
-
         else if (voltage22 > 732) { waterProofTemp = 21; }
-
         else if (voltage22 > 713) { waterProofTemp = 19; }
-
         else if (voltage22 > 703) { waterProofTemp = 18; }
-
         else if (voltage22 > 692) { waterProofTemp = 17; }
-
         else if (voltage22 > 682) { waterProofTemp = 16; }
-
         else if (voltage22 > 671) { waterProofTemp = 15; }
-
         else if (voltage22 > 661) { waterProofTemp = 14; }
-
         else if (voltage22 > 650) { waterProofTemp = 13; }
-
         else if (voltage22 > 638) { waterProofTemp = 12; }
-
         else if (voltage22 > 627) { waterProofTemp = 11; }
-
         else if (voltage22 > 615) { waterProofTemp = 10; }
-
         else if (voltage22 > 604) { waterProofTemp = 9; }
-
         else if (voltage22 > 592) { waterProofTemp = 8; }
-
         else if (voltage22 > 579) { waterProofTemp = 7; }
-
         else if (voltage22 > 567) { waterProofTemp = 6; }
-
         else if (voltage22 > 555) { waterProofTemp = 5; }
-
         else if (voltage22 > 542) { waterProofTemp = 4; }
-
         else if (voltage22 > 530) { waterProofTemp = 3; }
-
         else if (voltage22 > 517) { waterProofTemp = 2; }
-
         else if (voltage22 > 504) { waterProofTemp = 1; }
-
         else { waterProofTemp = 0; }
-
         return waterProofTemp;
-
     }
 
-
-
- 
-
     //% blockId=sonarbit
-
     //% weight=29
 
-
+    
     //% subcategory=Sensor
-
     //% blockId=sonar_ping block="Ultrasonic Sensor %ultpins units %unit"
-
     //% ultpins.fieldEditor="gridpicker"
-
     //% ultpins.fieldOptions.width=220
-
     //% ultpins.fieldOptions.columns=2
-
     export function ping(ultpins: Ultrasonic_pin, unit: PingUnit, maxCmDistance = 500): number {
-
-        // send pulse
-
-
-
         let d
-
         let distance
-
         let echopin
-
         let trigpin
 
         if (ultpins == 13) {
-
             trigpin = DigitalPin.P0;
-
             echopin = DigitalPin.P13;
-
         }
 
         if (ultpins == 114) {
-
             trigpin = DigitalPin.P1;
-
             echopin = DigitalPin.P14;
-
         }
 
         if (ultpins == 215) {
-
             trigpin = DigitalPin.P2;
-
             echopin = DigitalPin.P15;
-
         }
 
         if (ultpins == 87) {
-
             trigpin = DigitalPin.P8;
-
             echopin = DigitalPin.P7;
-
         }
 
         if (ultpins == 129) {
-
             trigpin = DigitalPin.P12;
-
             echopin = DigitalPin.P9;
-
         }
 
         if (ultpins == 1610) {
-
             trigpin = DigitalPin.P16;
-
             echopin = DigitalPin.P10;
-
         }
 
         pins.setPull(trigpin, PinPullMode.PullNone);
-
         pins.digitalWritePin(trigpin, 0);
-
         control.waitMicros(2);
-
         pins.digitalWritePin(trigpin, 1);
-
         control.waitMicros(10);
-
         pins.digitalWritePin(trigpin, 0);
-
-
 
         // read pulse
-
         d = pins.pulseIn(echopin, PulseValue.High, maxCmDistance * 50);
-
         distance = d * 34 / 2 / 1000 * 3 / 2;
-
         switch (unit) {
-
             case PingUnit.Centimeters: return Math.round(distance);
-
             case PingUnit.Inches: return Math.round(distance / 30.48);
-
             default: return Math.round(d);
-
         }
-
     }
 
 
 
     //////人体红外/////
-
     //% weight=27
-
     //% pirpin.fieldEditor="gridpicker"
-
     //% pirpin.fieldOptions.width=220
-
     //% pirpin.fieldOptions.columns=2
-
     //% blockId="PIR" block="PIR Sensor %pirpin detects motion"
-
     //% subcategory=Sensor 
-
     export function pir(pirpin: Write_pin): number {
-
         let pin48
         let rt
 
         if (pirpin == 1) {
-
-
-
             pin48 = DigitalPin.P0;
-
         }
 
         if (pirpin == 2) {
-
             pin48 = DigitalPin.P16;
-
         }
 
         if (pirpin == 3) {
-
             pin48 = DigitalPin.P1;
-
         }
 
         if (pirpin == 4) {
-
-
-
             pin48 = DigitalPin.P12;
-
         }
 
         if (pirpin == 5) {
-
             pin48 = DigitalPin.P2;
-
         }
 
         if (pirpin == 6) {
-
             pin48 = DigitalPin.P8;
-
         }
-
-
 
         if (pins.digitalReadPin(pin48) == 1) {
-
             rt = 0
-
-        }
-
-        else {
-
+        }else {
             rt = 1
-
         }
         return rt
-
     }
 
 
     /////////摇杆////////////////////
-
-    export enum rocket {
-        //% block="X"
-
-        x = 1,
-
-        //% block="Y"
-
-        y = 2
-    }
-    export enum rock {
-        //% block="up"
-
-        orient1 = 2,
-
-        //% block="down"
-
-        orient2 = 1,
-
-        //% block="left"
-
-        orient3 = 4,
-
-        //% block="right"
-
-        orient4 = 3
-    }
-
     //% weight=27
-
     //% direction.fieldEditor="gridpicker"
-
     //% direction.fieldOptions.width=220
-
     //% direction.fieldOptions.columns=2
-
     //% blockId="ROCKET" block="Joystick %direction moved"
-
     //% subcategory=Sensor 
-
     export function rocker(direction: rocket): number {
-
         let GetBuff = pins.createBuffer(3)
-
         GetBuff = pins.i2cReadBuffer(97, 3)
 
         let re = GetBuff.getNumber(NumberFormat.Int8BE, direction)
@@ -1045,24 +737,15 @@ namespace Microbit {
         } else {
             return re
         }
-        // re = -re
-
-
     }
+
     //% weight=27
-
     //% direction.fieldEditor="gridpicker"
-
     //% direction.fieldOptions.width=220
-
     //% direction.fieldOptions.columns=2
-
     //% blockId="ROCKETORI" block="Joystick detected %orientation "
-
     //% subcategory=Sensor 
-
     export function rockerori(orientation: rock): boolean {
-
         let GetBuff2 = pins.createBuffer(3)
 
         GetBuff2 = pins.i2cReadBuffer(97, 3)
@@ -1094,574 +777,5 @@ namespace Microbit {
                 flag = false
         }
         return flag
-
     }
-
-
-
-    ////////////////执行器/////////////////////////////////////
-
-    export enum enPos {
-
-        //% blockId="forward" block="forward"
-
-        forward = 1,
-
-        //% blockId="stop" block="back"
-
-        stop = 2
-
-    }
-
-    export enum enMotorcolor {
-        //% block="red"
-
-        red = 81,
-
-        //% block="green"
-
-        blue = 82,
-
-        //% block="blue"
-
-        green = 83,
-
-        //% block="yellow"
-
-        yellow = 84
-
-    }
-
-    export enum enServo {
-        S1 = 0,
-        S2,
-        S3,
-        S4
-    }
-
-
-
-    export enum enMotors {
-
-
-
-        M2 = 10,
-
-        M3 = 12,
-
-        M1 = 8,
-
-        M4 = 14
-
-    }
-
-
-
-
-
-    let caraddress1 = 81
-    let caraddress2 = 82
-
-   
-    //% blockId=SuperBit_runMotor block="|%motoraddress|Motor rotate at|%speed|"
-    //% speed.min=-100 speed.max=100
-    //% parts="SuperBit_runMotor" subcategory=Movement group="Servo Motor"
-    export function runMotor(motoraddress: enMotorcolor, speed: number): void {
-        speed = speed / 2
-        let speed_Buff
-        if (speed < 0) {
-            speed = -speed
-            speed_Buff = (~speed) + 1
-            speed_Buff = speed_Buff | 0x80
-        }else {
-            speed_Buff = speed
-        }
-
-        let SetBuff = pins.createBuffer(4)
-        SetBuff.setNumber(NumberFormat.UInt8BE, 0, 0x11)
-        SetBuff.setNumber(NumberFormat.UInt8BE, 1, speed_Buff)
-        SetBuff.setNumber(NumberFormat.UInt8BE, 2, 0)
-        SetBuff.setNumber(NumberFormat.UInt8BE, 3, 0)
-        pins.i2cWriteBuffer(motoraddress, SetBuff)
-    }
-
-    //% blockId="writemotorlocation" block="|%motoraddress|Motor is turned at|%speed|to|%location|degrees"
-    //% speed.min=0 speed.max=100
-    //% location.min=-360 location.max=360
-    //% parts="writemotorlocation" subcategory=Movement group="Servo Motor"
-    export function Writemotorlocation(motoraddress: enMotorcolor, speed: number, location: number): void {
-        if (speed == 0) {
-            return
-        }
-
-        speed = speed / 2
-        let speed_Buff2
-
-        if (speed < 0) {
-            speed = -speed
-            speed_Buff2 = (~speed) + 1
-            speed_Buff2 = speed_Buff2 | 0x80
-        }else {
-            speed_Buff2 = speed
-        }
-
-        let location_Buff2
-
-        if (location < 0) {
-            location = -location
-            location_Buff2 = (~location) + 1
-            location_Buff2 = location_Buff2 | 0x8000
-        }else {
-            location_Buff2 = location
-        }
-
-        let GetBuff3 = pins.createBuffer(6)
-        GetBuff3 = pins.i2cReadBuffer(motoraddress, 6)
-
-        if (((location - 5) <= getMotorLocation(GetBuff3)) && (getMotorLocation(GetBuff3) <= (location + 5))) {
-            return;
-        }
-        let SetBuff2 = pins.createBuffer(4)
-
-        SetBuff2.setNumber(NumberFormat.UInt8BE, 0, 0x3)
-        SetBuff2.setNumber(NumberFormat.UInt8BE, 1, speed_Buff2)
-        SetBuff2.setNumber(NumberFormat.UInt8BE, 2, location_Buff2 >> 8)
-        SetBuff2.setNumber(NumberFormat.UInt8BE, 3, location_Buff2)
-
-        pins.i2cWriteBuffer(motoraddress, SetBuff2)
-
-        let flag2 = GetBuff3.getNumber(NumberFormat.Int8BE, 5);
-        while (true) {//如果没有在运行，则一直读取
-            GetBuff3 = pins.i2cReadBuffer(motoraddress, 6)
-            flag2 = GetBuff3.getNumber(NumberFormat.Int8BE, 5)
-            if ((flag2 == 3)) break;//当有一个Servo Motor转动起来的时候，就退出死循环
-        }
-        while (true) {//如果没有在运行，则一直读取
-            GetBuff3 = pins.i2cReadBuffer(motoraddress, 6)
-            flag2 = GetBuff3.getNumber(NumberFormat.Int8BE, 5)
-            if ((flag2 == 11) || (flag2 == 10)) break;//当结束任务的时候，就退出死循环
-        }
-    }
-
-    //% blockId="writemotorrelativelocation" block="|%motoraddress|Motor rotate at|%speed|in|%location|degrees"
-    //% speed.min=-100 speed.max=100
-    //% location.min=0 
-    //% parts="writemotorrelativelocation" subcategory=Movement group="Servo Motor"
-    export function Writemotorrelativelocation(motoraddress: enMotorcolor, speed: number, location: number): void {
-        if (((location <= 5) && (location >= 0)) || ((location >= -5) && (location <= 0))) {
-            return;
-        }
-        speed = speed / 2
-
-        let location_Buff22
-
-        if (speed < 0) {
-            speed = -speed
-            location_Buff22 = (~location) + 1
-            location_Buff22 = location_Buff22 | 0x8000
-        }else {
-            speed = speed
-            location_Buff22 = location
-        }
-
-        let SetBuff22 = pins.createBuffer(4)
-
-        SetBuff22.setNumber(NumberFormat.UInt8BE, 0, 0x4)
-        SetBuff22.setNumber(NumberFormat.UInt8BE, 1, speed)
-        SetBuff22.setNumber(NumberFormat.UInt8BE, 2, location_Buff22 >> 8)
-        SetBuff22.setNumber(NumberFormat.UInt8BE, 3, location_Buff22)
-
-        let GetBuff4 = pins.createBuffer(6)
-        let flag3 = 0
-
-        if (speed != 0) {
-            pins.i2cWriteBuffer(motoraddress, SetBuff22)
-        } else {
-            location = 0;
-        }
-
-
-        if (location != 0) {
-            while (true) {//如果没有在运行，则一直读取
-                GetBuff4 = pins.i2cReadBuffer(motoraddress, 6)
-                flag3 = GetBuff4.getNumber(NumberFormat.Int8BE, 5)
-                if ((flag3 == 4)) break;//等待电机执行指令，跳出循环
-            }
-            while (true) {//如果没有在运行，则一直读取
-                GetBuff4 = pins.i2cReadBuffer(motoraddress, 6)
-                flag3 = GetBuff4.getNumber(NumberFormat.Int8BE, 5)
-                if ((flag3 == 11) || (flag3 == 10)) break;//等待电机执行完指令或堵转时，跳出循环
-            }
-        }
-
-
-    }
-    //% blockId="writemotorrelativetime" block="|%motoraddress|Motor rotate at|%speed|in|%time|seconds"
-
-    //% speed.min=-100 speed.max=100
-
-    //% parts="writemotorrelativetime" subcategory=Movement group="Servo Motor"
-
-    export function Writemotorrelativetime(motoraddress: enMotorcolor, speed: number, time: number): void {
-
-        speed = speed / 2
-
-        if (time > 0 && time < 0.1) {
-            time = 0.1;
-        }
-        time = time * 10
-
-        let speed_Buff3
-
-        if (speed < 0) {
-            speed = -speed
-            speed_Buff3 = (~speed) + 1
-            speed_Buff3 = speed_Buff3 | 0x80
-        }
-        else {
-            speed_Buff3 = speed
-        }
-
-        let SetBuff222 = pins.createBuffer(4)
-
-        SetBuff222.setNumber(NumberFormat.UInt8BE, 0, 0x12)
-        SetBuff222.setNumber(NumberFormat.UInt8BE, 1, speed_Buff3)
-        SetBuff222.setNumber(NumberFormat.UInt8BE, 2, time >> 8)
-        SetBuff222.setNumber(NumberFormat.UInt8BE, 3, time)
-
-        let flag4 = 0
-        pins.i2cWriteBuffer(motoraddress, SetBuff222)
-
-        if (time != 0) {
-            if (speed <= 0) {
-                let waitFalg = (control.millis() + (time * 100));
-                while (control.millis() <= waitFalg) { }
-
-            } else {
-                let GetBuff5 = pins.createBuffer(6)
-                while (true) {//如果没有在运行，则一直读取
-                    GetBuff5 = pins.i2cReadBuffer(motoraddress, 6)
-                    flag4 = GetBuff5.getNumber(NumberFormat.Int8BE, 5)
-                    // serial.writeLine("read1:[" + GetBuff.getNumber(NumberFormat.Int8BE, 0) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 1) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 2) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 3) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 4) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 5) + "," + GetBuff.getNumber(NumberFormat.Int8BE, 6) + "]");
-                    if ((flag4 == 0x7)) break;//等待电机执行指令，跳出循环
-                }
-                while (true) {//如果没有在运行，则一直读取
-                    GetBuff5 = pins.i2cReadBuffer(motoraddress, 6)
-                    flag4 = GetBuff5.getNumber(NumberFormat.Int8BE, 5)
-                    // serial.writeLine("read2:" + flag);
-                    if ((flag4 == 11)) break;//等待电机执行完指令或堵转时，跳出循环
-                }
-            }
-        }
-    }
-
-    //% blockId=SuperBit_runDMotor block="Dual motors rotate at|%speed1| |%speed2|"
-
-    //% speed1.min=-100 speed1.max=100
-
-    //% speed2.min=-100 speed2.max=100
-
-    //% parts="SuperBit_runDMotor" subcategory=Movement group="Servo Motor"
-
-    export function runDMotor(speed1: number, speed2: number): void {
-
-        speed1 = -speed1 / 2
-        speed2 = speed2 / 2
-
-        let speed_Buff1
-        if (speed1 < 0) {
-            speed1 = -speed1
-            speed_Buff1 = (~speed1) + 1
-            speed_Buff1 = speed_Buff1 | 0x80
-        }
-        else {
-            speed_Buff1 = speed1
-        }
-
-        let speed_Buff23
-        if (speed2 < 0) {
-            speed2 = -speed2
-            speed_Buff23 = (~speed2) + 1
-            speed_Buff23 = speed_Buff23 | 0x80
-        }
-        else {
-            speed_Buff23 = speed2
-        }
-
-        let SetBuff3 = pins.createBuffer(4)
-        let SetBuffc = pins.createBuffer(4)
-
-
-        SetBuff3.setNumber(NumberFormat.UInt8BE, 0, 0x11)
-        SetBuff3.setNumber(NumberFormat.UInt8BE, 1, speed_Buff1)
-        SetBuff3.setNumber(NumberFormat.UInt8BE, 2, 0)
-        SetBuff3.setNumber(NumberFormat.UInt8BE, 3, 0)
-
-        SetBuffc.setNumber(NumberFormat.UInt8BE, 0, 0x11)
-        SetBuffc.setNumber(NumberFormat.UInt8BE, 1, speed_Buff23)
-        SetBuffc.setNumber(NumberFormat.UInt8BE, 2, 0)
-        SetBuffc.setNumber(NumberFormat.UInt8BE, 3, 0)
-
-        pins.i2cWriteBuffer(caraddress1, SetBuff3)
-        pins.i2cWriteBuffer(caraddress2, SetBuffc)
-
-    }
-    //% blockId="writeDmotorlocation" block="Dual motors at|%speed1| |%speed2|in|%location|degrees"
-
-    //% speed1.min=-100 speed1.max=100
-
-    //% speed2.min=-100 speed2.max=100
-    //% location.min=0 
-    //% parts="writeDmotorlocation" subcategory=Movement group="Servo Motor"
-
-    export function WriteDmotorlocation(speed1: number, speed2: number, location: number): void {
-        if (((location <= 5) && (location >= 0)) || ((location >= -5) && (location <= 0))) {
-            return;
-        }
-        speed1 = -speed1 / 2
-        speed2 = speed2 / 2
-
-        let location1
-        let location_Buff1
-
-        let location2
-        let location_Buff23
-
-        location2 = ~location
-        location1 = ~location
-
-        if (speed2 < 0) {
-            speed2 = -speed2
-            location_Buff23 = location2 + 1
-        }
-        else {
-            location_Buff23 = location
-        }
-
-        if (speed1 < 0) {
-            speed1 = -speed1
-            location_Buff1 = location1 + 1
-        }
-        else {
-            location_Buff1 = location
-        }
-
-        if (speed1 == 0) {
-            location_Buff1 = 0
-        }
-
-        if (speed2 == 0) {
-            location_Buff23 = 0
-        }
-
-        let SetBuff23 = pins.createBuffer(4)
-        let SetBuff2c = pins.createBuffer(4)
-
-
-        SetBuff2c.setNumber(NumberFormat.UInt8BE, 0, 0x4)
-        SetBuff2c.setNumber(NumberFormat.UInt8BE, 1, speed2)
-        SetBuff2c.setNumber(NumberFormat.UInt8BE, 2, location_Buff23 >> 8)
-        SetBuff2c.setNumber(NumberFormat.UInt8BE, 3, location_Buff23)
-
-
-        SetBuff23.setNumber(NumberFormat.UInt8BE, 0, 0x4)
-        SetBuff23.setNumber(NumberFormat.UInt8BE, 1, speed1)
-        SetBuff23.setNumber(NumberFormat.UInt8BE, 2, location_Buff1 >> 8)
-        SetBuff23.setNumber(NumberFormat.UInt8BE, 3, location_Buff1)
-
-        if ((location != 0) && ((speed1 != 0) || (speed2 != 0))) {
-
-
-            let GetBuff6 = pins.createBuffer(7)
-            let GetBuff1 = pins.createBuffer(7)
-
-            //发送控制参数并获取运动状态
-            pins.i2cWriteBuffer(caraddress1, SetBuff23)
-            GetBuff1 = pins.i2cReadBuffer(caraddress1, 6)
-            pins.i2cWriteBuffer(caraddress2, SetBuff2c)
-            GetBuff6 = pins.i2cReadBuffer(caraddress2, 6)
-
-            let flag5 = GetBuff6.getNumber(NumberFormat.Int8BE, 5)//获取了第6位
-            let flag1 = GetBuff1.getNumber(NumberFormat.Int8BE, 5)//获取了第6位
-            //4为正在运行
-            while (true) {//如果没有在运行，则一直读取
-
-                GetBuff6 = pins.i2cReadBuffer(caraddress2, 6)
-                GetBuff1 = pins.i2cReadBuffer(caraddress1, 6)
-                flag5 = GetBuff6.getNumber(NumberFormat.Int8BE, 5)
-                flag1 = GetBuff1.getNumber(NumberFormat.Int8BE, 5)
-                if ((flag1 == 4) || (flag5 == 4)) break;//当有一个电机转动起来的时候，就退出死循环
-
-
-            }
-            //11为运行结束
-            while (true) {
-                GetBuff6 = pins.i2cReadBuffer(caraddress2, 6)
-                GetBuff1 = pins.i2cReadBuffer(caraddress1, 6)
-                flag5 = GetBuff6.getNumber(NumberFormat.Int8BE, 5)
-                flag1 = GetBuff1.getNumber(NumberFormat.Int8BE, 5)
-                // 11：结束运动，10：堵转停止
-                if (((flag1 == 11) || (flag1 == 10)) && ((flag5 == 11) || (flag5 == 10))) break;//当有两个电机都执行完毕的时候，就退出死循环
-            }
-        }
-    }
-
-    //% blockId="writeDmotortime" block="Dual motors rotate at |%speed1| |%speed2|in|%time|seconds"
-
-    //% speed1.min=-100 speed1.max=100
-
-    //% speed2.min=-100 speed2.max=100
-    //% time.min=0 
-    //% parts="writeDmotortime" subcategory=Movement group="Servo Motor"
-
-    export function writeDmotortime(speed1: number, speed2: number, time: number): void {
-
-        speed1 = -speed1 / 2
-        speed2 = speed2 / 2
-        // serial.writeLine("read1:" + time + "," + (time > 0 && time < 0.1));
-        if (time > 0 && time < 0.1) {
-            time = 0.1;
-        }
-        time = time * 10
-        let speed_Buff32
-        let speed_Buff4
-
-        if (speed1 < 0) {
-            speed1 = -speed1
-            speed_Buff32 = (~speed1) + 1
-            speed_Buff32 = speed_Buff32 | 0x80
-        }
-        else {
-            speed_Buff32 = speed1
-        }
-
-        if (speed2 < 0) {
-            speed2 = -speed2
-            speed_Buff4 = (~speed2) + 1
-            speed_Buff4 = speed_Buff4 | 0x80
-        }
-        else {
-            speed_Buff4 = speed2
-        }
-
-        let SetBuff32 = pins.createBuffer(4)
-        let SetBuff4 = pins.createBuffer(4)
-
-        SetBuff32.setNumber(NumberFormat.UInt8BE, 0, 0x12)
-        SetBuff32.setNumber(NumberFormat.UInt8BE, 1, speed_Buff32)
-        SetBuff32.setNumber(NumberFormat.UInt8BE, 2, time >> 8)
-        SetBuff32.setNumber(NumberFormat.UInt8BE, 3, time)
-
-        SetBuff4.setNumber(NumberFormat.UInt8BE, 0, 0x12)
-        SetBuff4.setNumber(NumberFormat.UInt8BE, 1, speed_Buff4)
-        SetBuff4.setNumber(NumberFormat.UInt8BE, 2, time >> 8)
-        SetBuff4.setNumber(NumberFormat.UInt8BE, 3, time)
-        // serial.writeLine("read1:" + SetBuff4.getNumber(NumberFormat.UInt8BE, ));
-
-        if (speed1 != 0) {
-            pins.i2cWriteBuffer(caraddress1, SetBuff32)
-        }
-        if (speed2 != 0) {
-            pins.i2cWriteBuffer(caraddress2, SetBuff4)
-        }
-
-
-
-        if ((time !== 0) && ((speed1 !== 0) || (speed2 !== 0))) {
-            let GetBuff7 = pins.createBuffer(6)
-            let GetBuff12 = pins.createBuffer(6)
-
-            GetBuff7 = pins.i2cReadBuffer(caraddress2, 6)
-            GetBuff12 = pins.i2cReadBuffer(caraddress1, 6)
-
-            let flag6 = GetBuff7.getNumber(NumberFormat.Int8BE, 5)//获取了第6位
-            let flag12 = GetBuff12.getNumber(NumberFormat.Int8BE, 5)//获取了第6位
-
-            while (true) {//如果没有在运行，则一直读取
-
-                GetBuff7 = pins.i2cReadBuffer(caraddress2, 6)
-                GetBuff12 = pins.i2cReadBuffer(caraddress1, 6)
-                flag6 = GetBuff7.getNumber(NumberFormat.Int8BE, 5)
-                flag12 = GetBuff12.getNumber(NumberFormat.Int8BE, 5)
-                // serial.writeLine("read2:[" + flag1 + "," + flag+"]");
-                if ((flag12 == 0x7) || (flag6 == 0x7)) break;//当有一个电机转动起来的时候，就退出死循环
-
-
-            }
-            //11为运行结束
-            while (true) {
-                GetBuff7 = pins.i2cReadBuffer(caraddress2, 6)
-                GetBuff12 = pins.i2cReadBuffer(caraddress1, 6)
-                flag6 = GetBuff7.getNumber(NumberFormat.Int8BE, 5)
-                flag12 = GetBuff12.getNumber(NumberFormat.Int8BE, 5)
-                // serial.writeLine("read3:[" + flag1 + "," + flag + "]");
-                if (((flag12 == 11)) && ((flag6 == 11))) break;//当有两个电机都执行完毕的时候，就退出死循环
-
-            }
-        }
-
-    }
-
-    //% blockId=SuperBit_DMotor 
-    //% block="Set left motor to|%motoraddress1|and right motor to|%motoraddress2|"
-    //% parts="SuperBit_DMotor" subcategory=Movement group="Servo Motor"
-    export function DMotor(motoraddress1: enMotorcolor, motoraddress2: enMotorcolor): void {
-        caraddress1 = motoraddress1
-        caraddress2 = motoraddress2
-    }
-
-
-    
-
-    //% blockId="readmotorspeed" block="Read speed of the |%motoraddress|motor"
-
-    //% parts="readmotorspeed" subcategory=Movement group="Servo Motor"
-
-    export function Readmotorspeed(motoraddress: enMotorcolor): number {
-
-        let GetBuff8 = pins.createBuffer(6)
-        GetBuff8 = pins.i2cReadBuffer(motoraddress, 6)
-        return GetBuff8.getNumber(NumberFormat.Int8BE, 0);
-
-    }
-
-    function getMotorLocation(buffer: Buffer) {
-
-        let location_Buff = (buffer.getNumber(NumberFormat.Int8BE, 1) << 8) + buffer.getNumber(NumberFormat.Int8BE, 2)
-        let This_location;
-        if (location_Buff & 0x0080) {
-            This_location = location_Buff + 0x0100
-        }
-        else {
-            This_location = location_Buff
-        }
-        return This_location;
-    }
-    function getMotorSpeed(buffer: Buffer) {
-
-        let location_Buff3 = (buffer.getNumber(NumberFormat.Int8BE, 0) << 8) + buffer.getNumber(NumberFormat.Int8BE, 1)
-        let This_speed;
-        if (location_Buff3 & 0x0080) {
-            This_speed = location_Buff3 + 0x0100
-        }
-        else {
-            This_speed = location_Buff3
-        }
-        return This_speed;
-    }
-
-    //% blockId="readmotorlocation" block="Read position of the |%motoraddress|motor"
-
-    //% parts="readmotorlocation" subcategory=Movement group="Servo Motor"
-
-    export function Readmotorlocation(motoraddress: enMotorcolor): number {
-        let GetBuff22 = pins.createBuffer(6)
-        GetBuff22 = pins.i2cReadBuffer(motoraddress, 6)
-        let This_location2 = getMotorLocation(GetBuff22);
-        return This_location2;
-    }
-    
-
-    
-
 }
