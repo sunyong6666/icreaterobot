@@ -1,4 +1,161 @@
 //OLED模块
+enum Oled {
+    //% block=" "
+    oled1 = 0,
+
+    //% block=" "
+    oled2 = 1,
+
+    //% block=" "
+    oled3 = 2,
+
+    //% block=" "
+    oled4 = 3,
+
+    //% block=" "
+    oled5 = 4,
+
+    //% block=" "
+    oled6 = 5,
+
+    //% block=" "
+    oled7 = 6,
+
+    //% block=" "
+    oled8 = 7,
+
+    //% block=" "
+    oled9 = 8,
+
+    //% block=" "
+    oled10 = 9,
+
+    //% block=" "
+    oled11 = 10,
+
+    //% block=" "
+    oled12 = 11,
+
+    //% block=" "
+    oled13 = 12,
+
+    //% block=" "
+    oled14 = 13,
+
+    //% block=" "
+    oled15 = 14,
+
+    //% block=" "
+    oled16 = 15,
+
+    //% block=" "
+    oled17 = 16,
+
+    //% block=" "
+    oled18 = 17,
+
+    //% block=" "
+    oled19 = 18,
+
+    //% block=" "
+    oled20 = 19,
+
+    //% block=" "
+    oled21 = 20,
+
+    //% block=" "
+    oled22 = 21,
+
+    //% block=" "
+    oled23 = 22,
+
+    //% block=" "
+    oled24 = 23,
+
+    //% block=" "
+    oled25 = 24,
+
+    //% block=" "
+    oled26 = 25,
+
+    //% block=" "
+    oled27 = 26,
+
+    //% block=" "
+    oled28 = 27,
+
+    //% block=" "
+    oled29 = 28,
+
+    //% block=" "
+    oled30 = 29,
+
+    //% block=" "
+    oled31 = 30,
+
+    //% block=" "
+    oled32 = 31,
+
+    //% block=" "
+    oled33 = 32,
+
+    //% block=" "
+    oled34 = 33,
+
+    //% block=" "
+    oled35 = 34,
+
+    //% block=" "
+    oled36 = 35,
+
+    //% block=" "
+    oled37 = 36,
+
+    //% block=" "
+    oled38 = 37,
+
+    //% block=" "
+    oled39 = 38,
+
+    //% block=" "
+    oled40 = 39,
+
+    //% block=" "
+    oled41 = 40,
+
+    //% block=" "
+    oled42 = 41,
+
+    //% block=" "
+    oled43 = 42,
+
+    //% block=" "
+    oled44 = 43,
+
+    //% block=" "
+    oled45 = 44,
+
+    //% block=" "
+    oled46 = 45,
+
+    //% block=" "
+    oled47 = 46,
+
+    //% block=" "
+    oled48 = 47,
+
+    //% block=" "
+    oled49 = 48,
+
+    //% block=" "
+    oled50 = 49,
+
+    //% block=" "
+    oled51 = 50,
+
+    //% block=" "
+    oled52 = 51,
+}
 
 namespace Microbit {
     let _I2CAddr = 0;

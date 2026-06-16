@@ -1,1324 +1,561 @@
-enum Oled {
 
-    //% block=" "
-
-    oled1 = 0,
-
-    //% block=" "
-
-    oled2 = 1,
-
-    //% block=" "
-
-    oled3 = 2,
-
-    //% block=" "
-
-    oled4 = 3,
-
-    //% block=" "
-
-    oled5 = 4,
-
-    //% block=" "
-
-    oled6 = 5,
-
-    //% block=" "
-
-    oled7 = 6,
-
-    //% block=" "
-
-    oled8 = 7,
-
-    //% block=" "
-
-    oled9 = 8,
-
-    //% block=" "
-
-    oled10 = 9,
-
-    //% block=" "
-
-    oled11 = 10,
-
-    //% block=" "
-
-    oled12 = 11,
-
-    //% block=" "
-
-    oled13 = 12,
-
-    //% block=" "
-
-    oled14 = 13,
-
-    //% block=" "
-
-    oled15 = 14,
-
-    //% block=" "
-
-    oled16 = 15,
-
-    //% block=" "
-
-    oled17 = 16,
-
-    //% block=" "
-
-    oled18 = 17,
-
-    //% block=" "
-
-    oled19 = 18,
-
-    //% block=" "
-
-    oled20 = 19,
-
-    //% block=" "
-
-    oled21 = 20,
-
-    //% block=" "
-
-    oled22 = 21,
-
-    //% block=" "
-
-    oled23 = 22,
-
-    //% block=" "
-
-    oled24 = 23,
-
-    //% block=" "
-
-    oled25 = 24,
-
-    //% block=" "
-
-    oled26 = 25,
-
-    //% block=" "
-
-    oled27 = 26,
-
-    //% block=" "
-
-    oled28 = 27,
-
-    //% block=" "
-
-    oled29 = 28,
-
-    //% block=" "
-
-    oled30 = 29,
-
-    //% block=" "
-
-    oled31 = 30,
-
-    //% block=" "
-
-    oled32 = 31,
-
-    //% block=" "
-
-    oled33 = 32,
-
-    //% block=" "
-
-    oled34 = 33,
-
-    //% block=" "
-
-    oled35 = 34,
-
-    //% block=" "
-
-    oled36 = 35,
-
-    //% block=" "
-
-    oled37 = 36,
-
-    //% block=" "
-
-    oled38 = 37,
-
-    //% block=" "
-
-    oled39 = 38,
-
-    //% block=" "
-
-    oled40 = 39,
-
-    //% block=" "
-
-    oled41 = 40,
-
-    //% block=" "
-
-    oled42 = 41,
-
-    //% block=" "
-
-    oled43 = 42,
-
-    //% block=" "
-
-    oled44 = 43,
-
-    //% block=" "
-
-    oled45 = 44,
-
-    //% block=" "
-
-    oled46 = 45,
-
-    //% block=" "
-
-    oled47 = 46,
-
-    //% block=" "
-
-    oled48 = 47,
-
-    //% block=" "
-
-    oled49 = 48,
-
-    //% block=" "
-
-    oled50 = 49,
-
-    //% block=" "
-
-    oled51 = 50,
-
-    //% block=" "
-
-    oled52 = 51,
-
-
-
-
-
-}
 enum Write_pin {
-
     //% block="P0"
-
     w0 = 1,
 
     //% block="P16"
-
     w1 = 2,
 
     //% block="P1"
-
     w2 = 3,
 
     //% block="P12"
-
     w3 = 4,
 
     //% block="P2"
-
     w4 = 5,
 
     //% block="P8"
-
     w5 = 6
-
-
-
 }
+
 enum Read_pin {
-
     //% block="P0"
-
     r0 = 1,
 
     //% block="P1"
-
     r1 = 2,
 
     //% block="P2"
-
     r2 = 3
-
-
-
 }
+
 enum Ultrasonic_pin {
-
     //% block="(P13,P0)"
-
     u1 = 13,
 
     //% block="(P14,P1)"
-
     u3 = 114,
 
     //% block="(P9,P12)"
-
     u4 = 129,
 
     //% block="(P15,P2)"
-
     u5 = 215
-
 }
+
 enum Recodpin {
-
     //% block="(P0,P13)"
-
     rc1 = 13,
-    //% block="(P1,P14)"
 
+    //% block="(P1,P14)"
     rc2 = 114,
 
     //% block="(P2,P15)"
-
     rc3 = 215
-
 }
 
-enum Record_list {//
 
-    //% block="machine gun burst"
-
-    rl1 = 1,
-
-    //% block="laser fire"
-
-    rl2 = 2,
-
-    //% block="racing acceleration"
-
-    rl3 = 3,
-    //% block="battle start"
-
-    rl4 = 4,
-    //% block="countdown"
-
-    rl5 = 5,
-    //% block="recorded audio"
-
-    rl6 = 6
-
-}
 enum PingUnit {
-
     //% block="centimeters"
-
     Centimeters,
 
     //% block="microseconds"
-
     MicroSeconds,
 
-
-
     //% block="inches"
-
     Inches
-
 }
+
 enum Grayscale_pin {
-
     //% block="P13"
-
     g0 = 1,
 
     //% block="P16"
-
     g1 = 2,
 
     //% block="P0"
-
     g2 = 3,
 
     //% block="P10"
-
     g3 = 4,
 
     //% block="P14"
-
     g4 = 5,
 
     //% block="P12"
-
     g5 = 6,
 
     //% block="P1"
-
     g6 = 7,
 
     //% block="P9"
-
     g7 = 8,
 
     //% block="P15"
-
     g8 = 9,
 
     //% block="P8"
-
     g9 = 10,
 
     //% block="P2"
-
     g10 = 11,
 
     //% block="P7"
-
     g11 = 12
-
 }
+
 enum gs {
-
     //% block="up"
-
     g0 = 1,
 
     //% block="down"
-
     g1 = 2,
 
     //% block="left"
-
     g2 = 3,
 
     //% block="right"
-
     g3 = 4
-
-
-
 }
+
 enum PINs {
-
     P0,
-
     P1,
-
     P2,
-
     P3,
-
     P4,
-
     P5,
-
     P6,
-
     P7,
-
     P8,
-
     P9,
-
     P10,
-
     P11,
-
     P12,
-
     P13,
-
     P14,
-
     P15,
-
     P16,
-
     P19,
-
     P20
-
 }
+
 enum TMP36Type {
-
     //% block="(℃)" enumval=0
-
     TMP36_temperature_C,
 
-
-
     //% block="(℉)" enumval=1
-
     TMP36_temperature_F,
-
 }
-enum RGB {
 
-    //% block="red"
 
-    RED,
-
-    //% block="green"
-
-    GREEN,
-
-    //% block="blue"
-
-    BLUE,
-
-    //% block="clear"
-
-    CLEAR
-
-}
-enum NeoPixelColors {
-
-    //% block=red
-
-    Red = 0xFF0000,
-
-    //% block=orange
-
-    Orange = 0xFFA500,
-
-    //% block=yellow
-
-    Yellow = 0xFFFF00,
-
-    //% block=green
-
-    Green = 0x00FF00,
-
-    //% block=blue
-
-    Blue = 0x0000FF,
-
-    //% block=indigo
-
-    Indigo = 0x4b0082,
-
-    //% block=violet
-
-    Violet = 0x8a2be2,
-
-    //% block=purple
-
-    Purple = 0xFF00FF,
-
-    //% block=white
-
-    White = 0xFFFFFF,
-
-    //% block=black
-
-    Black = 0x000000
-
-}
-enum NeoPixelMode {
-
-    //% block="GRB"
-
-    RGB = 1,
-
-    //% block="RGB+W"
-
-    RGBW = 2,
-
-    //% block="RGB"
-
-    RGB_RGB = 3
-
-}
 namespace Microbit {
 
-
-
-    export enum DHT11_state {
-
-        //% block="temperature(℃)" enumval=0
-
-        DHT11_temperature_C,
-
-
-
-        //% block="humidity(0~100)" enumval=1
-
-        DHT11_humidity,
-
-    }
-
-
-
-    export enum Distance_Unit_List {
-
-        //% block="centimeters" 
-
-        Distance_Unit_cm,
-
-
-
-        //% block="inches"
-
-        Distance_Unit_inch,
-
-    }
-
-
-
     //% blockId=buttonState
-
     //% weight=27
-
     //% buttonpin.fieldEditor="gridpicker"
-
     //% buttonpin.fieldOptions.width=220
-
     //% buttonpin.fieldOptions.columns=2
-
     //% block="Button Sensor %buttonpin"
-
     //% subcategory=Sensor
-
     export function buttonState(buttonpin: Write_pin): number {
-
         let pin16
-
         if (buttonpin == 1) {
-
-
-
             pin16 = DigitalPin.P0;
-
         }
 
         if (buttonpin == 2) {
-
             pin16 = DigitalPin.P16;
-
         }
 
         if (buttonpin == 3) {
-
             pin16 = DigitalPin.P1;
-
         }
 
         if (buttonpin == 4) {
-
-
-
             pin16 = DigitalPin.P12;
-
         }
 
         if (buttonpin == 5) {
-
             pin16 = DigitalPin.P2;
-
         }
 
         if (buttonpin == 6) {
-
             pin16 = DigitalPin.P8;
-
         }
 
-
-
-
-
         return pins.digitalReadPin(pin16);
-
     }
 
 
-
     //% blockId=hState
-
     //% weight=27
-
     //% hallpin.fieldEditor="gridpicker"
-
     //% hallpin.fieldOptions.width=220
-
     //% hallpin.fieldOptions.columns=1
-
     //% block="Hall Sensor %hallpin"
-
     //% subcategory=Sensor
-
     export function hState(hallpin: Read_pin): number {
-
         let pin18
-
         if (hallpin == 1) {
-
-
-
             pin18 = AnalogPin.P0;
-
         }
 
         if (hallpin == 2) {
-
             pin18 = AnalogPin.P1;
-
         }
 
         if (hallpin == 3) {
-
             pin18 = AnalogPin.P2;
-
         }
+
         if (pins.analogReadPin(pin18) < 512)
             return (0);
         else
             return (1);
-
     }
 
-
-
     //% blockId=farState
-
     //% weight=38
-
     //% farStatepin.fieldEditor="gridpicker"
-
     //% farStatepin.fieldOptions.width=220
-
     //% farStatepin.fieldOptions.columns=2
-
     //% block="Long-range Photoelectric Sensor %farStatepin"
-
     //% subcategory=Sensor
-
     export function farState(farStatepin: Write_pin): number {
-
         let pin17
-
         if (farStatepin == 1) {
-
-
-
             pin17 = DigitalPin.P0;
-
         }
 
         if (farStatepin == 2) {
-
             pin17 = DigitalPin.P16;
-
         }
 
         if (farStatepin == 3) {
-
             pin17 = DigitalPin.P1;
-
         }
 
         if (farStatepin == 4) {
-
-
-
             pin17 = DigitalPin.P12;
-
         }
 
         if (farStatepin == 5) {
-
             pin17 = DigitalPin.P2;
-
         }
 
         if (farStatepin == 6) {
-
             pin17 = DigitalPin.P8;
-
         }
 
         return pins.digitalReadPin(pin17);
-
     }
 
 
 
     //% blockId=potentiometerRead
-
     //% weight=37
-
     //% potentiometerpin.fieldEditor="gridpicker"
-
     //% potentiometerpin.fieldOptions.width=220
-
     //% potentiometerpin.fieldOptions.columns=1
-
     //% block="Potentiometer %potentiometerpin"
-
     //% subcategory=Sensor
-
     export function potentiometerRead(potentiometerpin: Read_pin): number {
-
         let pin15
-
         if (potentiometerpin == 1) {
-
-
-
             pin15 = AnalogPin.P0;
-
         }
 
         if (potentiometerpin == 2) {
-
             pin15 = AnalogPin.P1;
-
         }
 
         if (potentiometerpin == 3) {
-
             pin15 = AnalogPin.P2;
-
         }
-
         return pins.analogReadPin(pin15);
-
     }
 
 
 
     //% blockId="ReadGrayLevel" block="Grayscale Sensor %graylevelpin"
-
     //% weight=36
-
     //% graylevelpin.fieldEditor="gridpicker"
-
     //% graylevelpin.fieldOptions.width=220
-
     //% graylevelpin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function ReadGrayLevel(graylevelpin: Read_pin): number {
-
         let voltage7 = 0;
-
         let grayLevel = 0;
-
         let pin13
-
         if (graylevelpin == 1) {
-
-
-
             pin13 = AnalogPin.P0;
-
         }
 
         if (graylevelpin == 2) {
-
             pin13 = AnalogPin.P1;
-
         }
 
         if (graylevelpin == 3) {
-
             pin13 = AnalogPin.P2;
-
         }
 
         voltage7 = pins.map(
-
             pins.analogReadPin(pin13),
-
             0,
-
             1023,
-
             80,
-
             1023
-
         );
-
         grayLevel = voltage7;
-
         return Math.round(grayLevel);
-
     }
 
 
-
     //% blockId="readlightintensity" block="Photosensitive Sensor %lightintensitypin"
-
     //% weight=35
-
     //% lightintensitypin.fieldEditor="gridpicker"
-
     //% lightintensitypin.fieldOptions.width=220
-
     //% lightintensitypin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function ReadLightIntensity(lightintensitypin: Read_pin): number {
-
         let voltage2 = 0;
-
         let lightintensity = 0;
-
         let pin2
-
         if (lightintensitypin == 1) {
-
             pin2 = AnalogPin.P0;
-
-
-
         }
 
         if (lightintensitypin == 2) {
-
             pin2 = AnalogPin.P1;
-
         }
 
         if (lightintensitypin == 3) {
-
             pin2 = AnalogPin.P2;
-
-
-
         }
 
         voltage2 = pins.map(
-
             pins.analogReadPin(pin2),
-
             0,
-
             1023,
-
             0,
-
             1023
-
         );
 
         lightintensity = voltage2;
-
         return Math.round(1023 - lightintensity);
-
-
-
     }
 
 
 
     //% blockId="Readflame" block="Flame Sensor %flamepin"
-
     //% weight=34
-
     //% flamepin.fieldEditor="gridpicker"
-
     //% flamepin.fieldOptions.width=220
-
     //% flamepin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function Readflame(flamepin: Read_pin): number {
-
         let voltage6 = 0;
-
         let flame = 0;
-
         let pin12
-
         if (flamepin == 1) {
-
-
-
             pin12 = AnalogPin.P0;
-
         }
 
         if (flamepin == 2) {
-
             pin12 = AnalogPin.P1;
-
         }
 
         if (flamepin == 3) {
-
             pin12 = AnalogPin.P2;
-
         }
-
         voltage6 = pins.map(
-
             pins.analogReadPin(pin12),
-
             0,
-
             1023,
-
             0,
-
             1023
-
         );
 
         flame = voltage6;
-
         return Math.round(1023 - flame);
-
     }
 
 
-
     //% blockId="octopus_ReadWaterLevel" block="Water Level Sensor %waterlevelpin"
-
     //% weight=33
-
     //% waterlevelpin.fieldEditor="gridpicker"
-
     //% waterlevelpin.fieldOptions.width=220
-
     //% waterlevelpin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
-
-
     export function ReadWaterLevel(waterlevelpin: Read_pin): number {
-
         let voltage4 = 0;
-
         let waterLevel = 0;
-
         let pin10
-
         if (waterlevelpin == 1) {
-
-
-
             pin10 = AnalogPin.P0;
-
         }
 
         if (waterlevelpin == 2) {
-
             pin10 = AnalogPin.P1;
-
         }
 
         if (waterlevelpin == 3) {
-
             pin10 = AnalogPin.P2;
-
         }
 
         voltage4 = pins.analogReadPin(pin10);
-
         if (voltage4 > 620) { waterLevel = 100; }
-
         else if (voltage4 > 618) { waterLevel = 98; }
-
         else if (voltage4 > 617) { waterLevel = 96; }
-
         else if (voltage4 > 616) { waterLevel = 94; }
-
         else if (voltage4 > 614) { waterLevel = 92; }
-
         else if (voltage4 > 612) { waterLevel = 90; }
-
         else if (voltage4 > 610) { waterLevel = 88; }
-
         else if (voltage4 > 609) { waterLevel = 86; }
-
         else if (voltage4 > 607) { waterLevel = 85; }
-
         else if (voltage4 > 606) { waterLevel = 83; }
-
         else if (voltage4 > 605) { waterLevel = 81; }
-
         else if (voltage4 > 604) { waterLevel = 80; }
-
         else if (voltage4 > 603) { waterLevel = 78; }
-
         else if (voltage4 > 602) { waterLevel = 77; }
-
         else if (voltage4 > 600) { waterLevel = 75; }
-
         else if (voltage4 > 598) { waterLevel = 73; }
-
         else if (voltage4 > 596) { waterLevel = 72; }
-
         else if (voltage4 > 594) { waterLevel = 70; }
-
         else if (voltage4 > 592) { waterLevel = 68; }
-
         else if (voltage4 > 590) { waterLevel = 65; }
-
         else if (voltage4 > 588) { waterLevel = 63; }
-
         else if (voltage4 > 586) { waterLevel = 62; }
-
         else if (voltage4 > 583) { waterLevel = 60; }
-
         else if (voltage4 > 580) { waterLevel = 58; }
-
         else if (voltage4 > 575) { waterLevel = 56; }
-
         else if (voltage4 > 574) { waterLevel = 55; }
-
         else if (voltage4 > 573) { waterLevel = 54; }
-
-
-
         else if (voltage4 > 572) { waterLevel = 53; }
-
         else if (voltage4 > 570) { waterLevel = 52; }
-
         else if (voltage4 > 568) { waterLevel = 51; }
-
         else if (voltage4 > 566) { waterLevel = 50; }
-
         else if (voltage4 > 563) { waterLevel = 49; }
-
         else if (voltage4 > 560) { waterLevel = 48; }
-
         else if (voltage4 > 557) { waterLevel = 47; }
-
         else if (voltage4 > 554) { waterLevel = 46; }
-
         else if (voltage4 > 551) { waterLevel = 45; }
-
         else if (voltage4 > 548) { waterLevel = 44; }
-
         else if (voltage4 > 545) { waterLevel = 43; }
-
         else if (voltage4 > 542) { waterLevel = 42; }
-
         else if (voltage4 > 539) { waterLevel = 41; }
-
         else if (voltage4 > 536) { waterLevel = 40; }
-
         else if (voltage4 > 533) { waterLevel = 39; }
-
         else if (voltage4 > 530) { waterLevel = 38; }
-
         else if (voltage4 > 527) { waterLevel = 37; }
-
         else if (voltage4 > 523) { waterLevel = 36; }
-
         else if (voltage4 > 516) { waterLevel = 35; }
-
         else if (voltage4 > 510) { waterLevel = 34; }
-
         else if (voltage4 > 506) { waterLevel = 33; }
-
         else if (voltage4 > 500) { waterLevel = 32; }
-
         else if (voltage4 > 497) { waterLevel = 31; }
-
         else if (voltage4 > 494) { waterLevel = 30; }
-
         else if (voltage4 > 481) { waterLevel = 29; }
-
         else if (voltage4 > 478) { waterLevel = 28; }
-
         else if (voltage4 > 475) { waterLevel = 27; }
-
         else if (voltage4 > 472) { waterLevel = 26; }
-
         else if (voltage4 > 469) { waterLevel = 25; }
-
         else if (voltage4 > 466) { waterLevel = 24; }
-
         else if (voltage4 > 463) { waterLevel = 23; }
-
         else if (voltage4 > 460) { waterLevel = 22; }
-
         else if (voltage4 > 457) { waterLevel = 21; }
-
         else if (voltage4 > 454) { waterLevel = 19; }
-
         else if (voltage4 > 451) { waterLevel = 18; }
-
         else if (voltage4 > 448) { waterLevel = 17; }
-
         else if (voltage4 > 445) { waterLevel = 16; }
-
         else if (voltage4 > 442) { waterLevel = 15; }
-
         else if (voltage4 > 439) { waterLevel = 14; }
-
         else if (voltage4 > 436) { waterLevel = 13; }
-
         else if (voltage4 > 433) { waterLevel = 12; }
-
         else if (voltage4 > 430) { waterLevel = 11; }
-
         else if (voltage4 > 427) { waterLevel = 10; }
-
         else if (voltage4 > 424) { waterLevel = 9; }
-
         else if (voltage4 > 421) { waterLevel = 8; }
-
         else if (voltage4 > 418) { waterLevel = 7; }
-
         else if (voltage4 > 415) { waterLevel = 6; }
-
         else if (voltage4 > 412) { waterLevel = 5; }
-
         else if (voltage4 > 409) { waterLevel = 4; }
-
         else if (voltage4 > 406) { waterLevel = 3; }
-
         else if (voltage4 > 403) { waterLevel = 2; }
-
         else if (voltage4 > 400) { waterLevel = 1; }
-
         else { waterLevel = 0; }
-
-
-
         return Math.round(waterLevel);
-
     }
 
 
 
     //% blockId="ReadGasConcentration" block="MQ-2 Gas Sensor %gasconcentrationpin"
-
     //% weight=32
-
     //% gasconcentrationpin.fieldEditor="gridpicker"
-
     //% gasconcentrationpin.fieldOptions.width=220
-
     //% gasconcentrationpin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function ReadGasConcentration(gasconcentrationpin: Read_pin): number {
-
         let voltage5 = 0;
-
         let gasConcentration = 0;
-
         let pin11
-
         if (gasconcentrationpin == 1) {
-
-
-
             pin11 = AnalogPin.P0;
-
         }
 
         if (gasconcentrationpin == 2) {
-
             pin11 = AnalogPin.P1;
-
         }
 
         if (gasconcentrationpin == 3) {
-
             pin11 = AnalogPin.P2;
-
         }
 
         voltage5 = pins.map(
-
             pins.analogReadPin(pin11),
-
             0,
-
             1023,
-
             0,
-
             1023
-
         );
-
         gasConcentration = voltage5;
-
         return Math.round(gasConcentration);
-
     }
 
 
-
     //% blockId="readsoilmoisture" block="Soil moisture Sensor %soilhumiditypin"
-
     //% weight=31
-
     //% soilmoisturepin.fieldEditor="gridpicker"
-
     //% soilmoisturepin.fieldOptions.width=220
-
     //% soilmoisturepin.fieldOptions.columns=1
-
     //% subcategory=Sensor
-
     export function ReadSoilHumidity(soilmoisturepin: Read_pin): number {
-
         let voltage = 0;
-
         let soilmoisture = 0;
-
         let pin
-
         if (soilmoisturepin == 1) {
-
             pin = AnalogPin.P0;
-
         }
 
         if (soilmoisturepin == 2) {
-
             pin = AnalogPin.P1;
-
         }
 
         if (soilmoisturepin == 3) {
-
             pin = AnalogPin.P2;
-
-
-
         }
 
         voltage = pins.map(
-
             pins.analogReadPin(pin),
-
             0,
-
             1023,
-
             0,
-
             1023
-
         );
-
         soilmoisture = voltage;
-
         return Math.round(soilmoisture);
-
     }
 
 
@@ -2827,32 +2064,5 @@ namespace Microbit {
 
     }
 
-
-
-    ////////////////////////////////////////////
-
-    
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-
-
-    
 
 }

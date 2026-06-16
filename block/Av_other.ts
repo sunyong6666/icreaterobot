@@ -1,4 +1,23 @@
 //声光其他类型的
+enum Record_list {
+    //% block="machine gun burst"
+    rl1 = 1,
+
+    //% block="laser fire"
+    rl2 = 2,
+
+    //% block="racing acceleration"
+    rl3 = 3,
+
+    //% block="battle start"
+    rl4 = 4,
+
+    //% block="countdown"
+    rl5 = 5,
+
+    //% block="recorded audio"
+    rl6 = 6
+}
 
 namespace Microbit {
 
