@@ -8,10 +8,10 @@
     "{id:group}Recording Module": "录音模块",
     "{id:group}Servo Motor": "伺服电机",
 
-    "Microbit.rock.orient1|block": "上",
-    "Microbit.rock.orient2|block": "下",
-    "Microbit.rock.orient3|block": "左",
-    "Microbit.rock.orient4|block": "右",
+    "rock.orient1|block": "上",
+    "rock.orient2|block": "下",
+    "rock.orient3|block": "左",
+    "rock.orient4|block": "右",
     "PingUnit.Centimeters|block": "厘米",
     "PingUnit.MicroSeconds|block": "微秒",
     "PingUnit.Inches|block": "英寸",
@@ -35,10 +35,10 @@
 
 
 
-    "Microbit.enMotorcolor.red|block": "红",
-    "Microbit.enMotorcolor.blue|block": "绿",
-    "Microbit.enMotorcolor.green|block": "蓝",
-    "Microbit.enMotorcolor.yellow|block": "黄",
+    "enMotorcolor.red|block": "红",
+    "enMotorcolor.blue|block": "绿",
+    "enMotorcolor.green|block": "蓝",
+    "enMotorcolor.yellow|block": "黄",
     "Microbit.Servo4|block": "舵机| %num|角度 %value",
     "Microbit.MotorRun|block": "电机|%index|速度(-255~255) %speed",
     "Microbit.motorFan|block": "风扇 %fanpin 切换至 $fanstate || 速度 %speed",
