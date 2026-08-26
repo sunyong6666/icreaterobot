@@ -232,13 +232,7 @@ namespace Microbit {
             pin13 = AnalogPin.P2;
         }
 
-        voltage7 = pins.map(
-            pins.analogReadPin(pin13),
-            0,
-            1023,
-            80,
-            1023
-        );
+        voltage7 = pins.map(pins.analogReadPin(pin13),0,1023,80,1023);
         grayLevel = voltage7;
         return Math.round(grayLevel);
     }
@@ -266,13 +260,7 @@ namespace Microbit {
             pin2 = AnalogPin.P2;
         }
 
-        voltage2 = pins.map(
-            pins.analogReadPin(pin2),
-            0,
-            1023,
-            0,
-            1023
-        );
+        voltage2 = pins.map(pins.analogReadPin(pin2),0,1023,0,1023);
 
         lightintensity = voltage2;
         return Math.round(1023 - lightintensity);
@@ -300,13 +288,7 @@ namespace Microbit {
         if (flamepin == 3) {
             pin12 = AnalogPin.P2;
         }
-        voltage6 = pins.map(
-            pins.analogReadPin(pin12),
-            0,
-            1023,
-            0,
-            1023
-        );
+        voltage6 = pins.map(pins.analogReadPin(pin12),0,1023,0,1023);
 
         flame = voltage6;
         return Math.round(1023 - flame);
@@ -443,11 +425,7 @@ namespace Microbit {
             pin11 = AnalogPin.P2;
         }
 
-        voltage5 = pins.map(
-            pins.analogReadPin(pin11),
-            0,
-            1023,
-            0,
+        voltage5 = pins.map(pins.analogReadPin(pin11),0,1023,0,
             1023
         );
         gasConcentration = voltage5;
@@ -478,13 +456,7 @@ namespace Microbit {
             pin = AnalogPin.P2;
         }
 
-        voltage = pins.map(
-            pins.analogReadPin(pin),
-            0,
-            1023,
-            0,
-            1023
-        );
+        voltage = pins.map(pins.analogReadPin(pin),0,1023,0,1023);
         soilmoisture = voltage;
         return Math.round(soilmoisture);
     }
@@ -668,8 +640,10 @@ namespace Microbit {
         pins.digitalWritePin(trigpin, 0);
 
         // read pulse
-        d = pins.pulseIn(echopin, PulseValue.High, maxCmDistance * 50);
-        distance = d * 34 / 2 / 1000 * 3 / 2;
+        // d = pins.pulseIn(echopin, PulseValue.High, maxCmDistance * 50);
+        // distance = d * 34 / 2 / 1000 * 3 / 2;
+        d = pins.pulseIn(echopin, PulseValue.High, maxCmDistance * 58);
+        distance = d * 34 / 2000;
         switch (unit) {
             case PingUnit.Centimeters: return Math.round(distance);
             case PingUnit.Inches: return Math.round(distance / 30.48);
