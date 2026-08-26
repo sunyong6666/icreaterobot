@@ -81,7 +81,7 @@ enum rock {
 
 //% color="#272bcf"
 //% icon="\uf2db"
-namespace Microbit {
+namespace Kidzmicrobit {
 
     //% blockId=buttonState
     //% weight=27

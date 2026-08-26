@@ -14,7 +14,7 @@ enum enMotorcolor {
     yellow = 84
 }
 
-namespace Microbit {
+namespace Kidzmicrobit {
 
     let caraddress1 = 81
     let caraddress2 = 82

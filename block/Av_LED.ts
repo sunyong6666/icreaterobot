@@ -1,5 +1,5 @@
 //LED模块
-namespace Microbit {
+namespace Kidzmicrobit {
     //% blockId=LEDR block="Red LED %pin swicth $ledstate "
     //% ledstate.shadow="toggleOnOff"
     //% pin.fieldEditor="gridpicker"

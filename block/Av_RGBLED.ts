@@ -47,7 +47,7 @@ enum NeoPixelMode {
     RGB_RGB = 3
 }
 
-namespace Microbit {
+namespace Kidzmicrobit {
 
     export class Strip {
         buf: Buffer;

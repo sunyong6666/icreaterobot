@@ -14,7 +14,7 @@ enum enMotors {
     M4 = 14
 }
 
-namespace Microbit {
+namespace Kidzmicrobit {
 
     const PCA9685_ADD = 0x40
     const MODE1 = 0x00

@@ -19,7 +19,7 @@ enum Record_list {
     rl6 = 6
 }
 
-namespace Microbit {
+namespace Kidzmicrobit {
 
     /////////////////激光模块///////////////////
     //% blockId="laser_controller" block="Laser %laserpin switch %laserState || Laser %intensity"
