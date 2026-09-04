@@ -433,7 +433,7 @@ namespace Microbit {
     export function Readmotorspeed(motoraddress: enMotorcolor): number {
         let GetBuff8 = pins.createBuffer(6)
         GetBuff8 = pins.i2cReadBuffer(motoraddress, 6)
-        return GetBuff8.getNumber(NumberFormat.Int8BE, 0);
+        return GetBuff8.getNumber(NumberFormat.Int8BE, 0)*2;
     }
 
     function getMotorLocation(buffer: Buffer) {
